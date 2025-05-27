@@ -1,0 +1,103 @@
+{
+  "document": {
+    "type": "object",
+    "properties": {
+      "component_type": {
+        "description": "Type of electronic component",
+        "type": "string",
+        "enum": [
+          "op_amp",
+          "comparator",
+          "adc",
+          "microcontroller",
+          "current_sense_amplifier",
+          "rs485_transceiver",
+          "other"
+        ]
+      },
+      "features": {
+        "description": "List of notable functional features",
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "temperature_range_c": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          },
+          "max": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "min",
+          "max"
+        ]
+      },
+      "temperature_protection": {
+        "description": "Does the component include built-in thermal protection?",
+        "type": "boolean"
+      },
+      "output_type": {
+        "description": "Output type",
+        "type": "string",
+        "enum": [
+          "rail_to_rail",
+          "open_drain",
+          "push_pull",
+          "unknown"
+        ]
+      },
+      "slew_rate_v_per_us": {
+        "description": "Slew rate in volts per microsecond",
+        "type": "number"
+      },
+      "supply_voltage_range_v": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          },
+          "max": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "min",
+          "max"
+        ]
+      },
+      "part_number": {
+        "description": "Manufacturer part number (e.g. 'LM331A')",
+        "type": "string"
+      },
+      "input_bias_current_nA": {
+        "description": "Input bias current in nanoamperes",
+        "type": "number"
+      },
+      "quiescent_current_uA": {
+        "description": "Quiescent current per channel in microamperes",
+        "type": "number"
+      },
+      "bandwidth_mhz": {
+        "description": "Gain-bandwidth or frequency response in MHz",
+        "type": "number"
+      },
+      "applications": {
+        "description": "Typical application categories",
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "part_number",
+      "component_type"
+    ]
+  },
+  "sections": {}
+}
